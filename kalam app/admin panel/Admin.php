@@ -396,8 +396,6 @@
             <select name="type" id="type" class="form-control">
               <option value="">Select type</option>
               <option value="video">Video</option>
-              <option value="audio">Audio</option>
-              <option value="PDF">PDF</option>
               <option value="assignment">Assignment</option>
             </select><br>
             <textarea placeholder="Descprition" id="Descprition" name="Descprition" class="form-control"></textarea><br>
