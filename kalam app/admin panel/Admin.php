@@ -393,7 +393,7 @@
             <input type="hidden" placeholder="type" id="Admin_id" name="Admin_id" class="form-control"><br>
            <Select id="cat1" name="cat1" class="form-control"></select><br>
             <input type="text" placeholder="Title" id="Title" name="Title" class="form-control"><br>
-            <select name="" id="">
+            <select name="" id="" class="form-control" >
               <option value="video">video</option>
               <option value="audio">audio</option>
               <option value="PDF">PDF</option>
