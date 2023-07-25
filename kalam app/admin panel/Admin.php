@@ -397,6 +397,7 @@
               <option value="video">video</option>
               <option value="audio">audio</option>
               <option value="PDF">PDF</option>
+              <option value="assignment">assignment</option>
             </select>
             <textarea placeholder="Descprition" id="Descprition" name="Descprition" class="form-control"></textarea><br>
             <input type="text" placeholder="Content" id="Content" name="Content" class="form-control"><br>
