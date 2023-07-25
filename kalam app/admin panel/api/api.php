@@ -73,10 +73,11 @@ if (mysqli_connect_errno())
 			$Content=$_POST['Content'];
 			 $Admin_id=$_POST['Admin_id'];
 		    $cat1=$_POST['cat1'];
+		    $lectype=$_POST['lectype'];
    		    $dor=date("Y-m-d");
 		     
-                $query="INSERT INTO `course_lecture`(`cl_title`, `cl_descprition`, `cl_content` ) 
-				VALUES ('$Title','$Descprition','$Content')";	
+                $query="INSERT INTO `course_lecture`(`cl_title`, `cl_descprition`, `cl_content`, `cl_type`, `status` ) 
+				VALUES ('$Title','$Descprition','$Content','$lectype','Enable')";	
 		  //      $run =mysql_query($query);
 	        $run=mysqli_query($con,$query);
 	    
@@ -184,14 +185,12 @@ if (mysqli_connect_errno())
 	}else if($type=='0009'){
 
 		$id=$_POST['id'];
-        $query="DELETE FROM `course_lecture` WHERE `c_id`='$id'";	
+        $query="DELETE FROM `course_lecture` WHERE `cl_id`='$id'";	
 	//	$run =mysql_query($query);
     	$run=mysqli_query($con,$query);
 	    if($run>0){
 		        echo"Deleted Sucessfully";
-		        $tbalemodifies = uniqid();
-        $query1="UPDATE `kalamapp` SET  `Tble_Modified`='$tbalemodifies' , `Tble_load`='yo' WHERE `Tble_Name`='course_lecture'";	
-    	mysqli_query($con,$query1);
+		        
 		    }
 	    
 	}else if($type=='0010'){
@@ -395,12 +394,10 @@ $catid3=$_POST['catid3']; $Namecat1=$_POST['Namecat1']; $desccat1=$_POST['descca
 	   }else if($type=='0034'){
 
 		$id=$_POST['id']; 	$sts=$_POST['sts'];
-        $query="UPDATE `course_lecture` SET `Status`='$sts' WHERE `P_ID`='$id'";	
+        $query="UPDATE `course_lecture` SET `status`='$sts' WHERE `cl_id`='$id'";	
     	$run=mysqli_query($con,$query);
 	    if($run>0){echo"Updated Sucessfully";}else{echo"Failed";}
-	        $tbalemodifies = uniqid();
-            $query1="UPDATE `kalam app` SET  `Tble_Modified`='$tbalemodifies' , `Tble_load`='yo' WHERE `Tble_Name`='course_lecture'";	
-    	    mysqli_query($con,$query1);
+	        
 	}else if($type=='0035'){
 	    $dor=date("Y-m-d");  $cityUserName=$_POST['cityUserName']; $cityUserPass=$_POST['cityUserPass']; 
 	   //data : {'type':'0028','cityName':cityName,'cityUserName':cityUserName,'cityUserPass':cityUserPass},

@@ -342,7 +342,7 @@ function LoadAllCourse(){
 						   }else{
 						   	$("#dbData").html("");
 							var data  = jQuery.parseJSON(res);						
-							var the_table = '<option value="10101">Select Course</option>';
+							var the_table = '<option value="">Select Course</option>';
 								$.each(data, function (i, item) {
                                 the_table=the_table+'<option value='+data[i][0]+'>'+data[i][1]+'</option>';
 
@@ -539,16 +539,11 @@ function LoadAllLecture2(){
 						   }else{
 						       	$("#dbData").html("");
 							var data  = jQuery.parseJSON(res);	var btntxt;					
-							var the_table = '<table id="table1" class="table table-striped table-bordered table-sm" border=1><thead><tr><th></th><th>Title</th><th>Descprition</th><th> Content</th><th>Option</th><th>Date</th></tr></thead><tbody>';
+							var the_table = '<table id="table1" class="table table-striped table-bordered table-sm" border=1><thead><tr><th></th><th>Title</th><th>Descprition</th><th> Content</th><th>Option</th><th>Date</th><th>Status</th></tr></thead><tbody>';
 								$.each(data, function (i, item) {
-								var a=encodeURI(data[i][1]);
-								var b=encodeURI(data[i][2]);
-								var c=encodeURI(data[i][3]);
-								var d=encodeURI(data[i][5]);
-								var e=encodeURI(data[i][4]);
-								var f=encodeURI(data[i][10]);
-								if(data[i][8]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
-								the_table=the_table+'<tr><td>'+data[i][0]+'</td><td>'+data[i][1]+'</td><!--<td>'+data[i][2]+'</td>--><td>'+data[i][2]+'</td><td>'+data[i][4]+'</td><td><button data-toggle="modal" data-target="#myModalp" onclick=EditLectureSelcted('+data[i][5]+',`'+a+'`,`'+b+'`,`'+c+'`,`'+d+'`,`'+e+'`,`'+f+'`)>Edit</button> <br> <button onclick=disable_pro_real('+data[i][6]+',`'+btntxt+'`)>'+btntxt+'</button> <br> <button onclick=disable_pro('+data[i][7]+')>DELETE</button> </td><td>'+data[i][6]+'</td></tr>';
+								console.log(data[i]);
+								if(data[i][7]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
+								the_table=the_table+'<tr><td>'+data[i][0]+'</td><td>'+data[i][1]+'</td><!--<td>'+data[i][2]+'</td>--><td>'+data[i][2]+'</td><td>'+data[i][4]+'</td><td><button data-toggle="modal" data-target="#" onclick="EditLectureSelcted(`'+data[i]+'`)">Edit</button> <br> <button onclick=disable_pro_real('+data[i][0]+',`'+btntxt+'`)>'+btntxt+'</button> <br> <button onclick=disable_pro('+data[i][0]+')>DELETE</button> </td><td>'+data[i][6]+'</td><td>'+data[i][7]+'</td></tr>';
 								 
 							});
 							the_table=the_table+"</tbody></table>"
@@ -559,6 +554,15 @@ function LoadAllLecture2(){
 					     },error: function (jqXHR, exception){var msg=displayerror(jqXHR, exception); alert(msg); $('.loader').hide();},	
 				}); 
 }
+
+function EditLectureSelcted(data) {
+	var x = data.split(",");
+ $('#myModalp').modal("show");
+ $('#title').val(x[1]);
+ $('#editDescprition').val(x[2]);
+ $('#editcontent').val(x[4]);
+}
+
 function LoadAllSalesManCITY(){
     $('.loader').show();
     $.ajax({
@@ -612,7 +616,7 @@ function disable_pro_real(id,sts){
 					success : function (res){
 					 $('.loader').hide();
 					 alert(res);
-					 LoadAllSalesMan();
+					 LoadAllLecture2();
 					}
 					
 					
@@ -633,7 +637,7 @@ function disable_pro(id){
 					success : function (res){
 					 $('.loader').hide();
 					 alert(res);
-					 LoadAllSalesMan();
+					 LoadAllLecture2();
 					}
 					
 					
@@ -678,11 +682,11 @@ function AddNewLecture(){
     var Title = $('#Title').val();
 	var Descprition = $('#Descprition').val();
 	var Content = $('#Content').val();
+	var lectype = $('#lectype').val();
 	var p_image = $('#p_image').val();
     var Admin_id  = window.localStorage.getItem("Admin_id");
-    var subcat1 = $('#subcat1').val();
     $('#Admin_id').val(Admin_id);   
-    if(Title==''||Descprition==''||Content==''){
+    if(cat1==''||Title==''||Descprition==''||Content==''||lectype==''){
 	var Descprition = $('#Descprition').val();
         alert("Title/ /Descprition/Content/image/Course Can not be blank");
         $('.loader').hide(); $("#addprodu-btn").attr("disabled", false);

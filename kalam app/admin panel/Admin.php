@@ -393,7 +393,7 @@
             <input type="hidden" placeholder="type" id="Admin_id" name="Admin_id" class="form-control"><br>
            <Select id="cat1" name="cat1" class="form-control"></select><br>
             <input type="text" placeholder="Title" id="Title" name="Title" class="form-control"><br>
-            <select name="type" id="type" class="form-control">
+            <select name="lectype" id="lectype" class="form-control">
               <option value="">Select type</option>
               <option value="video">Video</option>
               <option value="assignment">Assignment</option>
@@ -575,14 +575,14 @@
         <form enctype="multipart/form-data">    
             <input type="hidden" placeholder="type" id="type1" name="type" class="form-control"><br>
             Title<br><input type="text" placeholder="title" id="title" name="title" class="form-control"><br>
-            Descprition<br><input type="text" placeholder="Descprition" id="Descprition" name="Descprition" class="form-control"><br>
-            <select name="type" id="type" class="form-control">
+            Descprition<br><input type="text" placeholder="Descprition" id="editDescprition" name="editDescprition" class="form-control"><br>
+            <select name="editlectype" id="editlectype" class="form-control">
               <option value="">Select type</option>
               <option value="video">Video</option>
               <option value="assignment">Assignment</option>
             </select><br>
            
-            Content<br><input type="text" placeholder="content" id="content" name="content" class="form-control"><br>
+            Content<br><input type="text" placeholder="content" id="editcontent" name="editcontent" class="form-control"><br>
            
             <!--onchange="encodeImageFileAsURL();"-->
                 <div id="status"></div>
