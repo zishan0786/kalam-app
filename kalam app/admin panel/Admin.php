@@ -393,6 +393,9 @@
             <input type="hidden" placeholder="type" id="Admin_id" name="Admin_id" class="form-control"><br>
            <Select id="cat1" name="cat1" class="form-control"></select><br>
             <input type="text" placeholder="Title" id="Title" name="Title" class="form-control"><br>
+            <select name="" id="">
+              <option value="video">video</option>
+            </select>
             <textarea placeholder="Descprition" id="Descprition" name="Descprition" class="form-control"></textarea><br>
             <input type="text" placeholder="Content" id="Content" name="Content" class="form-control"><br>
              
