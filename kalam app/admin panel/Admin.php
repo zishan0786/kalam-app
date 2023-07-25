@@ -393,12 +393,13 @@
             <input type="hidden" placeholder="type" id="Admin_id" name="Admin_id" class="form-control"><br>
            <Select id="cat1" name="cat1" class="form-control"></select><br>
             <input type="text" placeholder="Title" id="Title" name="Title" class="form-control"><br>
-            <select name="" id="">
-              <option value="video">video</option>
-              <option value="audio">audio</option>
+            <select name="type" id="type" class="form-control">
+              <option value="">Select type</option>
+              <option value="video">Video</option>
+              <option value="audio">Audio</option>
               <option value="PDF">PDF</option>
-              <option value="assignment">assignment</option>
-            </select>
+              <option value="assignment">Assignment</option>
+            </select><br>
             <textarea placeholder="Descprition" id="Descprition" name="Descprition" class="form-control"></textarea><br>
             <input type="text" placeholder="Content" id="Content" name="Content" class="form-control"><br>
              
