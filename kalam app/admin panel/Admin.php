@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- databale -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 <!-- databale -->
@@ -837,11 +837,11 @@
 <!-- <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script> -->
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <!-- Bootstrap JS -->
-    <script src="js/jquery.min.js"></script
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/all.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="js/myscript.js"></script>
    <script type="text/javascript">
       /*

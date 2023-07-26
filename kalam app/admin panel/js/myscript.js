@@ -377,11 +377,11 @@ function LoadAllCourse2(){
 						   	$("#dbData").html("");
 							var data  = jQuery.parseJSON(res);	var btntxt;		
 							console.log(data);			
-							var the_table = '<table id="table1" border="1" ><thead><tr><th>ID</th><th>Image</th><th>Course Name</th><th>Descprition</th><th>Duration</th><th>Course price</th><th>Sale price</th><th>Status</th><th>Edit</th><th>Delete</th></tr></thead><tbody>';
+							var the_table = '<table id="table1" border="1" ><thead><tr><th>ID</th><th>Image</th><th>Course Name</th><th>Descprition</th><th>Duration</th><th>Course price</th><th>Sale price</th><th>Status</th><th>Options</th></tr></thead><tbody>';
 								$.each(data, function (i, item) {
 							
                                 if(data[i][11]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
-the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3]+'" width="100" height="100"></td><td>'+data[i][1]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td></tr>';
+the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3]+'" width="100" height="100"></td><td>'+data[i][1]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][11]+'</td><td><button onclick="changeCourseSts('+data[i][0]+',`'+btntxt+'`)">'+btntxt+'</button><br><button onclick="delCourse('+data[i][0]+')">Delete</button><br><button onclick="editCourse('+data[i]+')">Edit</button></td></tr>';
 
 							});
 							the_table=the_table+"</tbody></table>"
@@ -622,6 +622,29 @@ function disable_pro_real(id,sts){
 				});
     }		
 }
+function changeCourseSts(id,sts){
+     
+    var k=confirm("Do You Want To "+sts+ "?");
+    if(k){ 
+        $('.loader').show();
+	    $.ajax({
+					type : 'post',
+					url : 'api/api.php',
+					data : {'type':'00344','id':id,'sts':sts},
+					beforeSend:function(){
+					//	$("#loading").show();
+					},
+					success : function (res){
+					 $('.loader').hide();
+					 alert(res);
+					 LoadAllCourse2();
+					}
+					
+					
+				});
+    }		
+}
+
 function disable_pro(id){
     var k=confirm("Do You Want To Delete?");
     if(k){
@@ -637,6 +660,27 @@ function disable_pro(id){
 					 $('.loader').hide();
 					 alert(res);
 					 LoadAllLecture2();
+					}
+					
+					
+				});
+    }		
+}
+function delCourse(id){
+    var k=confirm("Do You Want To Delete?");
+    if(k){
+        $('.loader').show();
+	    $.ajax({
+					type : 'post',
+					url : 'api/api.php',
+					data : {'type':'00099','id':id},
+					beforeSend:function(){
+					//	$("#loading").show();
+					},
+					success : function (res){
+					 $('.loader').hide();
+					 alert(res);
+					 LoadAllCourse2();
 					}
 					
 					

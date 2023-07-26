@@ -193,7 +193,22 @@ if (mysqli_connect_errno())
 		        
 		    }
 	    
-	}else if($type=='0010'){
+	}
+	else if($type=='00099'){
+
+		$id=$_POST['id'];
+        $query="DELETE FROM `course` WHERE `c_id`='$id'";	
+	//	$run =mysql_query($query);
+    	$run=mysqli_query($con,$query);
+	    if($run>0){
+		        echo"Deleted Sucessfully";
+		        
+		    }
+	    
+	}
+	
+	
+	else if($type=='0010'){
 
 	    	$CatName=$_POST['CatName']; 
 			$catdesc=$_POST['catdesc']; 
@@ -252,7 +267,7 @@ if (mysqli_connect_errno())
 	  
 	}else if($type=='0012'){
 
-	    $query="SELECT * FROM `course`";	
+	    $query="SELECT * FROM `course` ORDER BY c_id DESC ";	
     	$run=mysqli_query($con,$query);
 		while($row = mysqli_fetch_row($run)){
 			 $rows[]= $row;
@@ -409,7 +424,18 @@ $catid3=$_POST['catid3']; $Namecat1=$_POST['Namecat1']; $desccat1=$_POST['descca
     	$run=mysqli_query($con,$query);
 	    if($run>0){echo"Updated Sucessfully";}else{echo"Failed";}
 	        
-	}else if($type=='0035'){
+	}
+	else if($type=='00344'){
+
+		$id=$_POST['id'];
+		$sts=$_POST['sts'];
+        $query="UPDATE `course` SET `status`='$sts' WHERE `c_id`='$id'";	
+    	$run=mysqli_query($con,$query);
+	    if($run>0){echo"Updated Sucessfully";}else{echo"Failed";}
+	        
+	}
+
+	else if($type=='0035'){
 	    $dor=date("Y-m-d");  $cityUserName=$_POST['cityUserName']; $cityUserPass=$_POST['cityUserPass']; 
 	   //data : {'type':'0028','cityName':cityName,'cityUserName':cityUserName,'cityUserPass':cityUserPass},
 	    $query="INSERT INTO `E_Firdaus_E_admin`(`A_ID`, `Name`, `Password`, `type`, `Status`, `DOR`) VALUES ('0','$cityUserName','$cityUserPass','local','Active','$dor')";	
