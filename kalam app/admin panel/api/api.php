@@ -309,15 +309,46 @@ $tbalemodifies = uniqid();
 //					data : {'type':'0012','catid3':catid3,'Namecat1':Namecat1,'desccat1':desccat1},
 
 	}else if($type=='0016'){
-$catid3=$_POST['catid3']; $Namecat1=$_POST['Namecat1']; $desccat1=$_POST['desccat1']; $cat_image_tmp1=$_POST['cat_image_tmp1'];
-	   $query="UPDATE `E_Firdaus_E_Category` SET `CategoryName`='$Namecat1',`CategoryDesc`='$desccat1',`Cat_Symbol`='$cat_image_tmp1' WHERE `Category_ID`='$catid3'";	
-	//	$run =mysql_query($query);
-    	$run=mysqli_query($con,$query);
+$catid3=$_POST['catid3']; 
+$Namecat1=$_POST['Namecat1'];
+$desccat1=$_POST['desccat1'];
+$cat_image_tmp1=$_POST['cat_image_tmp1'];
+$Duration=$_POST['Duration'];
+$Courseprice=$_POST['Courseprice'];
+$Saleprice=$_POST['Saleprice'];
+if($cat_image_tmp1!=="") {
+	function base64_to_jpeg($base64_string, $output_file) {
+		$ifp = fopen( $output_file, 'wb' ); 
+		$data = explode( ',', $base64_string );
+		fwrite( $ifp, base64_decode( $data[ 1 ] ) );
+		fclose( $ifp ); 
+		return $output_file; 
+	}
+
+	$img_nm = "KA".date("Ymdhis").".jpg" ;
+	$ash = $cat_image_tmp1;
+   $image = base64_to_jpeg( $ash , 'uploads/'.$img_nm );
+
+	   $query="UPDATE `course` SET `c_name`='$Namecat1',`c_descprition`='$desccat1',`c_image`='$image',`c_duration`='$Duration',`course_price`='$Courseprice',`sale_price`='$Saleprice' WHERE `c_id`='$catid3'";	
+	
+    	if($run=mysqli_query($con,$query)) {
 		echo"Success";
-	    $tbalemodifies = uniqid();
-        $query1="UPDATE `E_Firdaus_E_TableCheck` SET  `Tble_Modified`='$tbalemodifies' , `Tble_load`='yo' WHERE `Tble_Name`='E_Firdaus_E_Category'";	
-    	mysqli_query($con,$query1);
-	}else if($type=='0017'){
+	 }  else{
+		echo "error";
+	 }
+}else{
+	$query="UPDATE `course` SET `c_name`='$Namecat1',`c_descprition`='$desccat1',`c_duration`='$Duration',`course_price`='$Courseprice',`sale_price`='$Saleprice' WHERE `c_id`='$catid3'";	
+	
+    	if($run=mysqli_query($con,$query)) {
+		echo"Success";
+	 }  else{
+		echo "error";
+	 }
+}
+	    
+	}
+	
+	else if($type=='0017'){
         $id=$_POST['id']; 
 	    $query="SELECT * FROM `E_Firdaus_E_Order` WHERE `O_ID`='$id'";	
 	//	$run =mysql_query($query);
@@ -682,6 +713,23 @@ $catid3=$_POST['catid3']; $Namecat1=$_POST['Namecat1']; $desccat1=$_POST['descca
 
 		
 	}
+	else if($type=='00167'){
+		$id=$_POST['id']; 
+		$title=$_POST['title'];
+		$desc=$_POST['desc'];
+		$Type=$_POST['Type'];
+		$content=$_POST['editcontent'];
+		
+		
+		$title=$_POST['title'];
+			   $query="UPDATE `course_lecture` SET `cl_title`='$title',`cl_descprition`='$desc',`cl_type`='$Type',`cl_content`='$content' WHERE `cl_id`='$id'";	
+			
+				if($run=mysqli_query($con,$query)) {
+				echo"Success";
+			 }  else{
+				echo "error";
+			 }
+			}
 	
 	mysqli_close($con);
 ?>

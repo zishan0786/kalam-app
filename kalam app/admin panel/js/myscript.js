@@ -396,6 +396,7 @@ the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3
 function editCourse(data) {
 	var x = data.split(",");
 	$('#myModalp3').modal("show");
+	$('#catid3').val(x[0]);
 	$('#CourseName').val(x[1]);
 	$('#Descpritione').val(x[2]);
 	$('#Duration').val(x[4]);
@@ -438,26 +439,20 @@ the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src='+data[i][4]+'  wid
 					     },error: function (jqXHR, exception){var msg=displayerror(jqXHR, exception); alert(msg); $('.loader').hide(); },		
 				}); 
 }
-function EditCat(id,name,desc,imgk){
-    var a=decodeURI(name);
-    var b=decodeURI(desc);
-    var c=decodeURI(imgk); //UpdateCatImg
-    $("#Namecat1").val(a);
-    $("#desccat1").val(b);
-    $("#catid3").val(id);
-    $("#cat_image_tmp1").val(c);
-    $("#UpdateCatImg").html("<img src="+c+" width='15%' height='15%'>");
-}
-function Updatecat2(){
+
+function Updatecourse(){
      $('.loader').show(); $("#Updatecat2btn").attr("disabled", true);
     var catid=$('#catid3').val();
-    var name=$('#Namecat1').val();
-    var desc=$('#desccat1').val();    
+    var name=$('#CourseName').val();
+    var desc=$('#Descpritione').val();    
+    var Duration=$('#Duration').val();    
+    var Courseprice=$('#Courseprice').val();    
+    var Saleprice=$('#Saleprice').val();    
     var cat_image_tmp1=$('#cat_image_tmp1').val();      
     $.ajax({
 					type : 'post',
 					url : 'api/api.php',
-					data : {'type':'0016','catid3':catid,'Namecat1':name,'desccat1':desc,'cat_image_tmp1':cat_image_tmp1},
+					data : {'type':'0016','catid3':catid,'Namecat1':name,'desccat1':desc,'cat_image_tmp1':cat_image_tmp1,'Duration':Duration,'Courseprice':Courseprice,'Saleprice':Saleprice},
 					beforeSend:function(){},
 					success : function (res){
 			        	$('.loader').hide(); $("#Updatecat2btn").attr("disabled", false);
@@ -467,25 +462,32 @@ function Updatecat2(){
 					 },error: function (jqXHR, exception){var msg=displayerror(jqXHR, exception); alert(msg); $('.loader').hide(); $("#Updatecat2btn").attr("disabled", false);},	
 				});
 }
-function updateCatStatus(cat_id,sts){
-     $('.loader').show();
-       $.ajax({
+
+function UpdatemyLecture(){
+    var id=$('#lecidE').val();
+    var title=$('#title').val();
+    var desc=$('#editDescprition').val();    
+    var Type=$('#editlectype').val();    
+    var editcontent=$('#editcontent').val();    
+   if(Type=="") {
+  alert("select type");
+   }else{
+ 
+    $.ajax({
 					type : 'post',
 					url : 'api/api.php',
-					data : {'type':'0013', 'cat_id':cat_id,'sts':sts},
-					beforeSend:function(){
-
-					},
+					data : {'type':'00167','id':id,'title':title,'desc':desc,'Type':Type,'editcontent':editcontent},
+					beforeSend:function(){},
 					success : function (res){
-					    $('.loader').hide();
-    			    	alert(res);
-					    $("#dbData").html("");
-				        LoadAllCourse2();
-					},error: function (jqXHR, exception){var msg=displayerror(jqXHR, exception); alert(msg); $('.loader').hide();},
-					
-					
+			        	$('.loader').hide(); $("#Updatecat2btn").attr("disabled", false);
+						$("#loading").hide();
+						alert(res);
+						// LoadAllCourse2();
+					 },error: function (jqXHR, exception){var msg=displayerror(jqXHR, exception); alert(msg); $('.loader').hide(); $("#Updatecat2btn").attr("disabled", false);},	
 				});
+			}
 }
+
 
 function enablecourse(cat_id){
        $.ajax({
@@ -569,6 +571,7 @@ function LoadAllLecture2(){
 function EditLectureSelcted(data) {
 	var x = data.split(",");
  $('#myModalp').modal("show");
+ $('#lecidE').val(x[0]);
  $('#title').val(x[1]);
  $('#editDescprition').val(x[2]);
  $('#editcontent').val(x[4]);

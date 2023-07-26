@@ -573,7 +573,7 @@
       <div class="modal-body">
         <div>
         <form enctype="multipart/form-data">    
-            <input type="hidden" placeholder="type" id="type1" name="type" class="form-control"><br>
+            <input type="hidden" id="lecidE" name="lecidE" class="form-control"><br>
             Title<br><input type="text" placeholder="title" id="title" name="title" class="form-control"><br>
             Descprition<br><input type="text" placeholder="Descprition" id="editDescprition" name="editDescprition" class="form-control"><br>
             <select name="editlectype" id="editlectype" class="form-control">
@@ -694,7 +694,7 @@
             Sale price<br><input type="text" placeholder="Sale price" id="Saleprice" name="Saleprice" class="form-control"><br>
             
                 <div id="status3"></div>
-            <a href="#" class="btn-primary btn-block" id="Updatecat2btn" onclick="Updatecat2()">Update Course</a>
+            <a href="#" class="btn-primary btn-block" id="Updatecat2btn" onclick="Updatecourse()">Update Course</a>
         </div>    
       </div>
       <div class="modal-footer">
