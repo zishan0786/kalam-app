@@ -381,7 +381,7 @@ function LoadAllCourse2(){
 								$.each(data, function (i, item) {
 							
                                 if(data[i][11]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
-the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3]+'" width="100" height="100"></td><td>'+data[i][1]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td></tr>';
+the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][1]+'" width="100" height="100"></td><td>'+data[i][1]+'</td><td>'+data[i][2]+'</td><td>'+data[i][4]+'</td><td>'+data[i][7]+'</td><td>'+data[i][8]+'</td><td>'+data[i][11]+'</td><td>'+data[i][11]+'</td><td>'+data[i][11]+'</td></tr>';
 
 							});
 							the_table=the_table+"</tbody></table>"
