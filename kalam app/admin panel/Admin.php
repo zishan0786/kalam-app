@@ -179,65 +179,22 @@
                     <a href="#">Dashboard</a>
                 </li>
                 <li>
+                    <a href="#" data-toggle="modal" data-target="#myModal2">Add Course</a>
+                </li>
+                <li>
+                 <a href="#" onclick="LoadAllCourse2()">All Course</a>
+             </li>
+             <li>
+                 <a href="#" data-toggle="modal" data-target="#myModal">Add Lecture</a>
+             </li>
+                <li>
                     <a href="#" onclick="LoadAllLecture()">All Lecture</a>
                 </li>
                    <li>
                     <a href="#" onclick="AllUSerLoad()">All Students</a>
                 </li>
                   
-                   <li>
-                    <a href="#" onclick="LoadAllCourse2()">All Course</a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal">Add Lecture</a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal2">Add Course</a>
-                </li>
-                <!-- <li>
-                    <a href="#" onclick="loadbanner()">All Banners</a>
-                </li> -->
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal6">Add Contact</a>
-                </li>   
-                <li>
-                    <a href="#" onclick="LoadContactOption()">Load Contact</a>
-                </li>   
-                 <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal4">Change Password</a>
-                </li>
-                <!-- <li>
-                    <a href="#" onclick="MinimumOrder()">Minimum Order</a>
-                </li> -->
-                 <!-- <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal5" >Add Delivery Boy</a>
-                </li>  
-                <li > -->
-                    <!-- <a href="#" onclick="LoadcityAdmin()">All Delivery Boy</a>
-                </li>   -->
-                <!--<li>
-                    <a href="#" onclick="referAmount()">Refer Order</a>
-                </li>-->
-                <li>
-                     <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal7">Add Coupon</a>
-                 </li>  
-                <li>
-                    <a class="nav-link" href="#" onclick="Loadcouponcode()">ALL Coupon</a>
-                 </li> 
-                <!--<li>
-                                <a class="nav-link" href="#" data-toggle="modal" data-target="#pincodefilter">Add Pin Code</a>
-                 </li>  
-                            
-                <li>
-                                <a class="nav-link" href="#" onclick="Loadpincode()">ALL Pin Code</a>
-                </li> -->
-
-                <!--<li>
-                    <a href="#" data-toggle="modal" data-target="#myModalSubCat">Add Sub Category</a>
-                </li>
-                <li>
-                    <a href="#" onclick="loadsubcategory()">All Sub Category</a>
-                </li>-->
+                
                 <br>
             </ul>
 
@@ -282,15 +239,20 @@
 
             <div class="container" style="padding:0;margin:0">
             <div class="row">
+            <div class="col-sm-4 col-6"><button class="btn-all btn-alc"  onclick="LoadAllCourse2()"><i class="fas fa-list"></i> All Course</button></div>
+            
+            <div class="col-sm-4 col-6"><button class="btn-all btn-alu" onclick=""><i class="fas fa-users"></i> All Students</button></div>
+
     <div class="col-sm-4 col-6"><button class="btn-all btn-alp" onclick="LoadAllLecture2()"><i class="fas fa-boxes"></i>All Lecture</button></div>
-     <div class="col-sm-4 col-6"><button class="btn-all btn-alu" onclick="AllUSerLoad();"><i class="fas fa-users"></i> All Students</button></div>
+
       <!-- <div class="col-sm-3 col-6"><button class="btn-all btn-alo" onclick="LoadAllOrders()"><i class="fas fa-dolly"></i> All Order</button></div> -->
-     <div class="col-sm-4 col-6"><button class="btn-all btn-alc"  onclick="LoadAllCourse2()"><i class="fas fa-list"></i> All Course</button></div>
+     
     </div>
     <br>
             <div class="row">
+              <div class=" col-6"><button class="btn-all btn-ac" data-toggle="modal" data-target="#myModal2"><i class="fas fa-tags"></i> Add Course</button></div>
+
     <div class=" col-6"><button class="btn-all btn-ap" data-toggle="modal" data-target="#myModal"><i class="fas fa-box-open"></i> Add Lecture</button></div>
-     <div class=" col-6"><button class="btn-all btn-ac" data-toggle="modal" data-target="#myModal2"><i class="fas fa-tags"></i> Add Course</button></div>
 <!-- <div class="col-sm-3 col-6"><button class="btn-all btn-app" data-toggle="modal" data-target="#myModal3" onclick=""><i class="fas fa-download"></i> Add New Slot</button></div> -->
      <!-- <div class="col-sm-3 col-6"><button class="btn-all btn-app" onclick="loadslot()"><i class="fas fa-download"></i> Current Slot</button></div> -->
 
