@@ -34,6 +34,7 @@ $(document).ready(function(){
    });	
 });	
 */
+const IMGurl = 'api/';
 
 function displayerror(jqXHR,exception){
 	 var msg = '';
@@ -305,7 +306,7 @@ function addnewcourse(){
     $.ajax({
 					type : 'post',
 					url : 'api/api.php',
-					data : {'type':'0010', 'CatName':CatName, 'catdesc':catdesc, 'CatDuration':CatDuration, 'Catcp':Catcp, 'Catsp':Catsp},
+					data : {'type':'0010', 'cat_image_tmp':cat_image_tmp, 'CatName':CatName, 'catdesc':catdesc, 'CatDuration':CatDuration, 'Catcp':Catcp, 'Catsp':Catsp},
 					beforeSend:function(){
 					},
 					success : function (res){
@@ -376,18 +377,16 @@ function LoadAllCourse2(){
 						   	$("#dbData").html("");
 							var data  = jQuery.parseJSON(res);	var btntxt;		
 							console.log(data);			
-							var the_table = '<table id="table5" class="table table-striped table-bordered table-sm" border=1><thead><tr><th>ID</th><th>Image</th><th>Course Name</th><th>Descprition</th><th>Duration</th><th>Course price</th><th>Sale price</th><th>Status</th><th>Edit</th><th>Delete</th></tr></thead><tbody>';
+							var the_table = '<table id="table1" border="1" ><thead><tr><th>ID</th><th>Image</th><th>Course Name</th><th>Descprition</th><th>Duration</th><th>Course price</th><th>Sale price</th><th>Status</th><th>Edit</th><th>Delete</th></tr></thead><tbody>';
 								$.each(data, function (i, item) {
-								var a=encodeURI(data[i][1]);
-								var b=encodeURI(data[i][2]);
-								var c=encodeURI(data[i][4]);
-                                if(data[i][5]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
-the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src='+data[i][4]+'  width="80px"></td><td>'+data[i][1]+'</td><td>'+data[i][2]+'</td><td>'+data[i][4]+'</td><td>'+data[i][7]+'</td><td>'+data[i][8]+'</td><td><button onclick="updateCatEnable('+data[i][0]+',`'+btntxt+'`)">'+btntxt+'</button></td><td><button data-toggle="modal" data-target="#myModalp3" onclick=EditCat('+data[i][0]+',`'+a+'`,`'+b+'`,`'+c+'`)>Edit</button></td><td><button>DELETE </button></td></tr>';
+							
+                                if(data[i][11]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
+the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3]+'" width="100" height="100"></td><td>'+data[i][1]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td></tr>';
 
 							});
 							the_table=the_table+"</tbody></table>"
 							$("#dbData").html(the_table);
-							$("#table5").DataTable();
+							$("#table1").DataTable();
 								   
 						   }
 					     },error: function (jqXHR, exception){var msg=displayerror(jqXHR, exception); alert(msg); $('.loader').hide(); },		

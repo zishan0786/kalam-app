@@ -197,18 +197,29 @@ if (mysqli_connect_errno())
 
 	    	$CatName=$_POST['CatName']; 
 			$catdesc=$_POST['catdesc']; 
-			 $cat_image_tmp=$_POST['cat_image_tmp'];
-			 $CatDuration=$_POST['CatDuration'];
-			 $catcp=$_POST['Catcp'];
-			 $catsp=$_POST['Catsp'];
+			$CatDuration=$_POST['CatDuration'];
+			$catcp=$_POST['Catcp'];
+			$catsp=$_POST['Catsp'];
+			$cat_image_tmp=$_POST['cat_image_tmp'];
 
+			function base64_to_jpeg($base64_string, $output_file) {
+				$ifp = fopen( $output_file, 'wb' ); 
+				$data = explode( ',', $base64_string );
+				fwrite( $ifp, base64_decode( $data[ 1 ] ) );
+				fclose( $ifp ); 
+				return $output_file; 
+			}
 
-        $query="INSERT INTO `course` ( `c_name`, `c_descprition`, `c_duration`,`course_price`,`sale_price`,`c_image`)
-		 VALUES ('$CatName','$catdesc','$CatDuration','$catcp','$catsp','$cat_image_tmp')";	
+			$img_nm = "KA".date("Ymdhis").".jpg" ;
+			$ash = $cat_image_tmp;
+           $image = base64_to_jpeg( $ash , 'uploads/'.$img_nm );
+
+        $query="INSERT INTO `course` ( `c_name`, `c_descprition`, `c_duration`,`course_price`,`sale_price`,`c_image`, `status`)
+		 VALUES ('$CatName','$catdesc','$CatDuration','$catcp','$catsp','$image','Enable')";
 
     	$run=mysqli_query($con,$query);
 	    if($run>0){
-		        echo"Inserted Sucessfully";
+		        echo"Added Sucessfully";
 		    }else{
 		        echo"Failed: Please Try Again";
 		    }
