@@ -687,11 +687,11 @@
             <input type="hidden" placeholder="Name" id="catid3" name="" class="form-control"><br>
             Image<input type="file" placeholder="image" id="cat_image1" name="cat_image1"  class="form-control" onchange="encodeImageFileAsURL3();"><br>
             <input type="hidden" name="cat_image_tmp1" id="cat_image_tmp1" disabled>
-            Course Name<br><input type="text" placeholder="Course Name" id="Course Name" name="Course Name" class="form-control"><br>
-            Descprition<br><input type="text" placeholder="Descprition" id="Descprition" name="Descprition" class="form-control"><br>
+            Course Name<br><input type="text" placeholder="Course Name" id="CourseName" name="CourseName" class="form-control"><br>
+            Descprition<br><input type="text" placeholder="Descprition" id="Descpritione" name="Descpritione" class="form-control"><br>
             Duration<br><input type="text" placeholder="Duration" id="Duration" name="Duration" class="form-control"><br>
-            Course price<br><input type="text" placeholder="Course price" id="Course price" name="Course price" class="form-control"><br>
-            Sale price<br><input type="text" placeholder="Sale price" id="Sale price" name="Sale price" class="form-control"><br>
+            Course price<br><input type="text" placeholder="Course price" id="Courseprice" name="Courseprice" class="form-control"><br>
+            Sale price<br><input type="text" placeholder="Sale price" id="Saleprice" name="Saleprice" class="form-control"><br>
             
                 <div id="status3"></div>
             <a href="#" class="btn-primary btn-block" id="Updatecat2btn" onclick="Updatecat2()">Update Course</a>

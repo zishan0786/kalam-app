@@ -381,7 +381,7 @@ function LoadAllCourse2(){
 								$.each(data, function (i, item) {
 							
                                 if(data[i][11]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
-the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3]+'" width="100" height="100"></td><td>'+data[i][1]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][11]+'</td><td><button onclick="changeCourseSts('+data[i][0]+',`'+btntxt+'`)">'+btntxt+'</button><br><button onclick="delCourse('+data[i][0]+')">Delete</button><br><button onclick="editCourse('+data[i]+')">Edit</button></td></tr>';
+the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3]+'" width="100" height="100"></td><td>'+data[i][1]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][0]+'</td><td>'+data[i][11]+'</td><td><button onclick="changeCourseSts('+data[i][0]+',`'+btntxt+'`)">'+btntxt+'</button><br><button onclick="delCourse('+data[i][0]+')">Delete</button><br><button onclick="editCourse(`'+data[i]+'`)">Edit</button></td></tr>';
 
 							});
 							the_table=the_table+"</tbody></table>"
@@ -392,6 +392,18 @@ the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src="'+IMGurl+data[i][3
 					     },error: function (jqXHR, exception){var msg=displayerror(jqXHR, exception); alert(msg); $('.loader').hide(); },		
 				}); 
 }
+
+function editCourse(data) {
+	var x = data.split(",");
+	$('#myModalp3').modal("show");
+	$('#CourseName').val(x[1]);
+	$('#Descpritione').val(x[2]);
+	$('#Duration').val(x[4]);
+	$('#Courseprice').val(x[7]);
+	$('#Saleprice').val(x[8]);
+
+}
+
 function LoadAllCourse2CITY(){
     $('.loader').show();
     $.ajax({
