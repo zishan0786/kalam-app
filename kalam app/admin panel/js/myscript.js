@@ -382,7 +382,7 @@ function LoadAllCourse2(){
 								var b=encodeURI(data[i][2]);
 								var c=encodeURI(data[i][4]);
                                 if(data[i][5]=="Enable"){btntxt="Disable"}else{btntxt="Enable"}
-the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src='+data[i][4]+'  width="80px"></td><td>'+data[i][1]+'</td><td>'+data[i][2]+'</td><td>'+data[i][4]+'</td><td>'+data[i][7]+'</td><td>'+data[i][8]+'</td><td><button onclick="updateCatEnable('+data[i][0]+',`'+btntxt+'`)">'+btntxt+'</button></td><td><button data-toggle="modal" data-target="#myModalp3" onclick=EditCat('+data[i][0]+',`'+a+'`,`'+b+'`,`'+c+'`)>Edit</button></td><td><button onlick="">DELETE </button></td></tr>';
+the_table=the_table+'<tr><td>'+data[i][0]+'</td><td><img src='+data[i][4]+'  width="80px"></td><td>'+data[i][1]+'</td><td>'+data[i][2]+'</td><td>'+data[i][4]+'</td><td>'+data[i][7]+'</td><td>'+data[i][8]+'</td><td><button onclick="updateCatEnable('+data[i][0]+',`'+btntxt+'`)">'+btntxt+'</button></td><td><button data-toggle="modal" data-target="#myModalp3" onclick=EditCat('+data[i][0]+',`'+a+'`,`'+b+'`,`'+c+'`)>Edit</button></td><td><button>DELETE </button></td></tr>';
 
 							});
 							the_table=the_table+"</tbody></table>"
